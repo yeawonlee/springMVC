@@ -4,5 +4,6 @@
  
 <configuration>
 	<typeAliases>
+		<package name="com.cloudmt.practice.model.dto"/>
 	</typeAliases>
 </configuration>

@@ -12,12 +12,12 @@
 	</insert>
 	
 	<!-- 회원 리스트 조회 -->
-	<select id="list" resultType="com.cloudmt.practice.model.dto.MemberDTO">
+	<select id="list" resultType="MemberDTO">
 		select * from members order by name
 	</select>
 	
 	<!-- 회원 상세정보 조회 -->
-	<select id="detail" resultType="com.cloudmt.practice.model.dto.MemberDTO">
+	<select id="detail" resultType="MemberDTO">
 		select * from members
 		where id = #{id}
 	</select>
