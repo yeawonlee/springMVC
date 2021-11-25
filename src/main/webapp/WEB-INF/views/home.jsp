@@ -9,7 +9,7 @@
 	<h1>Hello Spring!</h1>
 	<p>
 		<!-- ${pageContext.request.contextPath}: Context root(springMVC)가 들어감 -->
-		<a href="${pageContext.request.contextPath}/member/list">Show members</a>
+		<a href="${pageContext.request.contextPath}/members">Show members</a>
 	</p>
 </body>
 </html>

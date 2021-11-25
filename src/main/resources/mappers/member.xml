@@ -12,33 +12,34 @@
 	</insert>
 	
 	<!-- 회원 리스트 조회 -->
-	<select id="list" resultType="MemberDTO">
-		select * from members order by name
+	<select id="getList" resultType="MemberDTO">
+		select * from members order by idx
 	</select>
 	
 	<!-- 회원 상세정보 조회 -->
 	<select id="detail" resultType="MemberDTO">
 		select * from members
-		where id = #{id}
+		where idx = #{idx}
 	</select>
 	
 	<!-- 회원 정보 수정 -->
 	<update id="update">
 		update members
 		set password = #{password}, name = #{name}, email = #{email}
-		where id = #{id}
+		where idx = #{idx}
 	</update>
 	
 	<!-- 회원 정보 삭제 -->
 	<delete id="delete">
 		delete from members
-		where id = #{id}
+		where idx = #{idx}
 	</delete>
 	
-	<!-- 수정, 삭제 시 비밀번호 체크 -->
+	<!-- 수정, 삭제 시 비밀번호 체크
 	<select id="check_password" resultType="int">
 		select count(*) from members
 		where id = #{id} and password = #{password}
 	</select>
+	 -->
 	
 </mapper>

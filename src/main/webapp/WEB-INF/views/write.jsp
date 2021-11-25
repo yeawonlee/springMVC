@@ -9,7 +9,7 @@
 <body>
 	<h1>회원 등록</h1>
 	<form name="form1" method="post" 
-			action="${pageContext.request.contextPath}/member/insert">
+			action="${pageContext.request.contextPath}/members">
 		<table border="1" width="460px">
 			<tr>
 				<th>ID</th>

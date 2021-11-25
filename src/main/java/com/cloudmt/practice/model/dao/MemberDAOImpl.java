@@ -1,8 +1,6 @@
 package com.cloudmt.practice.model.dao;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,39 +16,40 @@ public class MemberDAOImpl implements MemberDAO {
 
 	// create. 회원 등록
 	@Override
-	public void insert(MemberDTO dto) {
+	public void insert(MemberDTO dto) throws Exception {
 		sqlSession.insert("member.insert", dto);
 	}
 
 	// read. 회원 리스트 조회
 	@Override
-	public List<MemberDTO> list() {
-		// "member.list": mapper.xml 파일의 "namespace.태그 id"
-		return sqlSession.selectList("member.list");	
+	public List<MemberDTO> getList() throws Exception {
+		// "member.getList": mapper.xml 파일의 "namespace.태그 id"
+		return sqlSession.selectList("member.getList");	
 	}
 
 	// read. 회원 상세정보 조회
 	@Override
-	public MemberDTO detail(String id) {
+	public MemberDTO detail(int idx) throws Exception {
 		// selectOne(): 레코드 1개, selectList(): 1개 이상
-		return sqlSession.selectOne("member.detail", id);
+		return sqlSession.selectOne("member.detail", idx);
 	}
 
 	// update. 회원 정보 수정
 	@Override
-	public void update(MemberDTO dto) {
+	public void update(MemberDTO dto) throws Exception {
 		sqlSession.update("member.update", dto);
 	}
 
 	// delete. 회원 정보 삭제
 	@Override
-	public void delete(String id) {
-		sqlSession.delete("member.delete", id);
+	public void delete(int idx) throws Exception {
+		sqlSession.delete("member.delete", idx);
 	}
 
+	/*
 	// update, delete 시 password 체크
 	@Override
-	public boolean check_password(String id, String password) {
+	boolean check_password(String id, String password) throws Exception {
 		
 		boolean result = false;
 		
@@ -69,5 +68,5 @@ public class MemberDAOImpl implements MemberDAO {
 		
 		return result;
 	}
-
+	*/
 }

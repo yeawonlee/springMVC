@@ -8,10 +8,11 @@
 <title>Member List</title>
 </head>
 <body>
-	<h1>Member List</h1>	
-	<input type="button" value="회원 등록" onclick="location.href='write'">	
+	<h1>Member List</h1>
+	<input type="button" value="회원 등록" onclick="location.href='${pageContext.request.contextPath}/members/form'">	
 	<table border="1" width="600px">
 		<tr>
+			<th>No</th>
 			<th>ID</th>
 			<th>Name</th>
 			<th>Email</th>
@@ -21,8 +22,9 @@
 		<!-- items 리스트에서 하나씩. dto 값 출력 -->
 		<c:forEach var="row" items="${items}">
 		<tr>
+			<td>${row.idx}</td>
 			<td>${row.id}</td>
-			<td><a href="${pageContext.request.contextPath}/member/view?id=${row.id}">
+			<td><a href="${pageContext.request.contextPath}/members/${row.idx}">
 					${row.name}</a></td>
 			<td>${row.email}</td>
 		</tr>
